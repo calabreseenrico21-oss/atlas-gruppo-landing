@@ -35,8 +35,8 @@
 
   /* Header — minimale, logo discreto */
   .topbar{border-bottom:1px solid var(--grey-200);padding:20px 0;}
-  .topbar .wrap{display:flex;align-items:center;gap:12px;}
-  .topbar img{height:30px;width:auto;display:block;}
+  .topbar .wrap{display:flex;align-items:center;justify-content:flex-end;gap:12px;}
+  .topbar img{height:60px;width:auto;display:block;}
   .topbar .word{font-size:15px;font-weight:600;letter-spacing:0.06em;}
   .topbar .word .sub{display:inline-block;margin-left:8px;font-size:10px;font-weight:400;letter-spacing:0.24em;color:var(--grey-500);}
 
@@ -88,21 +88,25 @@
   }
   .biz-card a:hover{color:var(--grey-700);border-color:var(--grey-700);}
 
-  /* Footer — dati societari condensati, monocromo */
-  footer{padding:40px 0 48px;}
-  footer .riga-dati{
-    display:flex;flex-wrap:wrap;gap:8px 10px;align-items:baseline;
-    font-size:12px;color:var(--grey-700);
+  /* Footer — dati societari organizzati per colonne, monocromo */
+  footer{background:var(--grey-100);padding:56px 0 32px;margin-top:64px;}
+  footer .footer-grid{
+    display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px;
+    padding-bottom:36px;border-bottom:1px solid var(--grey-200);
   }
-  footer .riga-dati .sep{color:var(--grey-300);}
-  footer .guida-footer{margin-top:10px;font-size:12px;color:var(--grey-500);}
-  footer .guida-footer strong{color:var(--ink);font-weight:500;}
+  footer .footer-col h4{
+    font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--grey-500);font-weight:500;margin-bottom:14px;
+  }
+  footer .footer-col .word{font-size:16px;font-weight:600;letter-spacing:0.05em;margin-bottom:6px;}
+  footer .footer-col p{font-size:13px;color:var(--grey-700);line-height:1.7;}
+  footer .footer-col a{font-size:13px;color:var(--grey-700);line-height:1.7;display:block;}
+  footer .footer-col a:hover{color:var(--ink);}
+  footer .footer-col .amministratore strong{color:var(--ink);font-weight:500;}
   footer .footer-bottom{
     display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;
-    margin-top:28px;padding-top:20px;border-top:1px solid var(--grey-200);
+    margin-top:24px;
   }
-  footer .word{font-size:13px;font-weight:600;letter-spacing:0.05em;}
-  footer .word .sub{margin-left:6px;font-size:10px;font-weight:400;letter-spacing:0.22em;color:var(--grey-500);}
   footer .copy{font-size:11px;color:var(--grey-500);letter-spacing:0.02em;}
 
   @media (max-width:860px){
@@ -112,6 +116,7 @@
     .stat-item{padding:18px 24px 0 0;margin-right:24px;}
     .business{padding:56px 0 64px;}
     .biz-grid{grid-template-columns:1fr;}
+    footer .footer-grid{grid-template-columns:1fr;gap:28px;}
   }
 </style>
 </head>
@@ -119,8 +124,7 @@
 
 <header class="topbar">
   <div class="wrap">
-    <img src="assets/icona-atlas-reale.png" alt="Atlas SRL">
-    <div class="word">ATLAS SRL<span class="sub">CARINI, PALERMO</span></div>
+    <img src="assets/lockup-atlas-reale.png" alt="Atlas SRL">
   </div>
 </header>
 
@@ -128,13 +132,7 @@
   <div class="wrap">
     <div class="eyebrow">Atlas SRL · Carini, Palermo</div>
     <h1>Un'azienda, tre modi di sostenere chi viaggia</h1>
-    <p class="lede">Parcheggio custodito a 5 minuti dall'aeroporto, noleggio con navetta dal terminal, vendita di usato selezionato: tre servizi nati da Carini, un solo interlocutore per chi si muove a Palermo.</p>
     <p class="guida">Guidato da <strong>Enrico Calabrese</strong>, Amministratore.</p>
-    <div class="stats-row">
-      <div class="stat-item"><span class="n">3</span><span class="l">Attività attive</span></div>
-      <div class="stat-item"><span class="n">H24</span><span class="l">Custodia e navetta</span></div>
-      <div class="stat-item"><span class="n">5 min</span><span class="l">Dall'aeroporto di Palermo</span></div>
-    </div>
   </div>
 </section>
 
@@ -172,17 +170,24 @@
 
 <footer>
   <div class="wrap">
-    <div class="riga-dati">
-      <span>Atlas SRL</span><span class="sep">·</span>
-      <span>P.IVA IT 07392190828</span><span class="sep">·</span>
-      <span>REA PA-455794</span><span class="sep">·</span>
-      <span>Via delle Peonie snc, Carini (PA) 90044</span><span class="sep">·</span>
-      <span>atlas.srl@casellapec.com</span><span class="sep">·</span>
-      <span>+39 333 897 5744</span>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="word">ATLAS SRL</div>
+        <p>Via delle Peonie snc<br>Carini (PA) 90044</p>
+      </div>
+      <div class="footer-col">
+        <h4>Dati societari</h4>
+        <p>P.IVA IT 07392190828<br>REA PA-455794</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contatti</h4>
+        <a href="mailto:atlas.srl@casellapec.com">atlas.srl@casellapec.com</a>
+        <a href="tel:+393338975744">+39 333 897 5744</a>
+        <p class="amministratore">Amministratore: <strong>Enrico Calabrese</strong></p>
+      </div>
     </div>
-    <div class="guida-footer">Amministratore: <strong>Enrico Calabrese</strong></div>
     <div class="footer-bottom">
-      <div class="word">ATLAS SRL<span class="sub">CARINI, PALERMO</span></div>
+      <div class="copy">ATLAS SRL · Carini, Palermo</div>
       <div class="copy">© 2026 Atlas SRL — P.IVA IT07392190828</div>
     </div>
   </div>
