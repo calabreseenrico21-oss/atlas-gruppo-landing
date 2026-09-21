@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atlas SRL — Parcheggio, noleggio e vendita auto a Palermo</title>
+<meta name="description" content="Atlas SRL: gruppo palermitano con tre business — parcheggio aeroportuale Parking Beach, noleggio auto Atlas Rent a Car, vendita auto usate Atlas Auto Hub.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --nero:#000000;
+    --pannello:#0A0A0A;
+    --giallo:#D4FF00;
+    --giallo-hover:#B8DD00;
+    --bianco:#FFFFFF;
+    --bordo:#262626;
+    --bordo-hover:#3A3A3A;
+    --testo-attenuato:#A5A5A0;
+    --testo-secondario:#8A8A85;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  html,body{max-width:100%;overflow-x:hidden;}
+  body{
+    background:var(--nero);
+    color:var(--bianco);
+    font-family:'Instrument Sans',system-ui,-apple-system,sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.logo-word{
+    font-family:'Bricolage Grotesque',system-ui,sans-serif;
+    font-weight:700;
+    letter-spacing:-0.02em;
+  }
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  /* Tratteggio 2:2:1 */
+  .tratteggio{display:flex;gap:8px;align-items:center;}
+  .tratteggio span{display:block;height:8px;background:var(--giallo);}
+  .tratteggio .b1{width:40px;}
+  .tratteggio .b2{width:40px;}
+  .tratteggio .b3{width:20px;}
+
+  /* Header */
+  header{
+    position:sticky;top:0;z-index:10;
+    background:rgba(0,0,0,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--bordo);
+  }
+  header .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-top:16px;padding-bottom:16px;
+  }
+  .logo-header{display:flex;align-items:center;gap:10px;font-size:20px;}
+  .logo-header .a{color:var(--giallo);}
+  header nav{display:flex;gap:24px;font-size:14px;color:var(--testo-attenuato);}
+  header nav a:hover{color:var(--bianco);}
+
+  /* Hero */
+  .hero{
+    padding:88px 0 72px;
+    text-align:center;
+  }
+  .hero .tratteggio{justify-content:center;margin:0 auto 32px;}
+  .hero h1{
+    font-size:clamp(32px,5vw,52px);
+    line-height:1.1;
+    margin-bottom:20px;
+  }
+  .hero h1 .a{color:var(--giallo);}
+  .hero p{
+    max-width:600px;margin:0 auto;
+    color:var(--testo-attenuato);
+    font-size:18px;
+  }
+  .hero .stats{
+    display:flex;justify-content:center;gap:32px 48px;
+    margin-top:56px;flex-wrap:wrap;
+  }
+  .stat{text-align:center;}
+  .stat .n{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:32px;color:var(--giallo);}
+  .stat .l{font-size:13px;color:var(--testo-secondario);margin-top:4px;}
+
+  /* Sezioni generiche */
+  section{padding:72px 0;border-top:1px solid var(--bordo);}
+  .eyebrow{
+    color:var(--giallo);font-size:13px;font-weight:600;
+    text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px;
+  }
+  section h2{font-size:clamp(26px,3.5vw,36px);margin-bottom:16px;}
+  section > .wrap > p.lede{color:var(--testo-attenuato);max-width:640px;font-size:16px;margin-bottom:48px;}
+
+  /* Chi siamo */
+  .chi-siamo-testo{max-width:680px;color:var(--testo-attenuato);font-size:16px;}
+  .chi-siamo-testo p{margin-bottom:16px;}
+  .chi-siamo-testo strong{color:var(--bianco);}
+
+  /* Business cards */
+  .business-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+  }
+  .biz-card{
+    background:var(--pannello);
+    border:1px solid var(--bordo);
+    padding:32px;
+    display:flex;flex-direction:column;gap:16px;
+    transition:border-color .15s ease;
+  }
+  .biz-card:hover{border-color:var(--bordo-hover);}
+  .biz-tag{
+    display:inline-block;
+    font-size:12px;font-weight:600;color:var(--nero);
+    background:var(--giallo);
+    padding:4px 10px;
+    width:fit-content;
+    text-transform:uppercase;letter-spacing:0.04em;
+  }
+  .biz-card h3{font-size:22px;}
+  .biz-card p{color:var(--testo-attenuato);font-size:15px;flex-grow:1;}
+  .biz-card .biz-link{
+    font-size:14px;font-weight:600;color:var(--giallo);
+    display:inline-flex;align-items:center;gap:6px;
+  }
+  .biz-card .biz-link:hover{color:var(--giallo-hover);}
+
+  /* Valori */
+  .valori-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:24px;
+  }
+  .valore h4{font-size:16px;margin-bottom:8px;color:var(--bianco);}
+  .valore p{font-size:14px;color:var(--testo-secondario);}
+
+  /* Dati societari */
+  .dati-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:24px 32px;
+  }
+  .dato .k{font-size:12px;color:var(--testo-secondario);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;}
+  .dato .v{font-size:15px;color:var(--bianco);}
+
+  /* Footer */
+  footer{border-top:1px solid var(--bordo);padding:40px 0;}
+  footer .wrap{
+    display:flex;flex-wrap:wrap;gap:16px;
+    align-items:center;justify-content:space-between;
+  }
+  footer .logo-header{font-size:16px;}
+  footer .copy{font-size:13px;color:var(--testo-secondario);}
+
+  @media (max-width:640px){
+    header nav{display:none;}
+    .hero{padding:64px 0 48px;}
+    section{padding:56px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo-header"><span class="a">atlas</span>&nbsp;srl</div>
+    <nav>
+      <a href="#chi-siamo">Chi siamo</a>
+      <a href="#business">Business</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="tratteggio"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
+    <h1>Il gruppo <span class="a">atlas</span><br>tre business, un'unica solidità</h1>
+    <p>Parcheggio aeroportuale, noleggio auto e vendita auto usate: da Carini (Palermo), Atlas SRL muove le persone e le loro auto in tutta la Sicilia occidentale.</p>
+    <div class="stats">
+      <div class="stat"><div class="n">3</div><div class="l">Business attivi</div></div>
+      <div class="stat"><div class="n">4.8★</div><div class="l">Valutazione media Google</div></div>
+      <div class="stat"><div class="n">5 min</div><div class="l">Dall'aeroporto di Palermo</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="chi-siamo">
+  <div class="wrap">
+    <div class="eyebrow">Chi siamo</div>
+    <h2>Un'impresa siciliana, tre modi di essere al servizio di chi viaggia</h2>
+    <div class="chi-siamo-testo">
+      <p><strong>Atlas SRL</strong> è un'impresa con sede a Carini, a pochi minuti dall'Aeroporto di Palermo Falcone Borsellino. Il nome richiama la figura mitologica che regge il mondo: un riferimento alla solidità e all'affidabilità con cui affianchiamo i nostri clienti, prima, durante e dopo il viaggio.</p>
+      <p>Negli anni abbiamo costruito tre linee di business complementari, pensate per chi arriva o parte dall'aeroporto: un parcheggio custodito con navetta gratuita, un servizio di noleggio auto personale e diretto, una compravendita di auto usate curata e trasparente. Servizio personale, prezzi chiari, nessuna sorpresa: la stessa filosofia in ogni ramo del gruppo.</p>
+    </div>
+    <div class="valori-grid" style="margin-top:40px;">
+      <div class="valore"><h4>Servizio personale</h4><p>Un referente dedicato per ogni pratica, niente call center anonimi.</p></div>
+      <div class="valore"><h4>Prezzi trasparenti</h4><p>Nessun costo nascosto, nessuna franchigia sorpresa.</p></div>
+      <div class="valore"><h4>Vicinanza all'aeroporto</h4><p>5 minuti dal terminal, con navetta gratuita h24.</p></div>
+      <div class="valore"><h4>Reperibilità WhatsApp</h4><p>Risposta rapida prima, durante e dopo ogni servizio.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="business">
+  <div class="wrap">
+    <div class="eyebrow">I nostri business</div>
+    <h2>Tre società, un unico gruppo</h2>
+    <p class="lede">Ogni ramo ha il proprio sito e la propria squadra, ma nasce dalla stessa impresa e dalla stessa cura per il cliente.</p>
+    <div class="business-grid">
+
+      <div class="biz-card">
+        <span class="biz-tag">Parcheggio aeroportuale</span>
+        <h3>Parking Beach</h3>
+        <p>Parcheggio sicuro e custodito a 5 minuti dall'Aeroporto di Palermo, con navetta gratuita h24. Prenotazione online, opzione "con chiavi" e servizi extra come lavaggio e transfer.</p>
+        <a class="biz-link" href="https://www.parkingbeach.it" target="_blank" rel="noopener">parkingbeach.it ↗</a>
+      </div>
+
+      <div class="biz-card">
+        <span class="biz-tag">Noleggio auto</span>
+        <h3>Atlas Rent a Car</h3>
+        <p>Noleggio auto con servizio personale: navetta gratuita dal terminal, flotta curata e aggiornata, nessun costo nascosto. L'alternativa alle grandi catene internazionali.</p>
+        <a class="biz-link" href="https://www.atlasrentacar.it" target="_blank" rel="noopener">atlasrentacar.it ↗</a>
+      </div>
+
+      <div class="biz-card">
+        <span class="biz-tag">Vendita auto usate</span>
+        <h3>Atlas Auto Hub</h3>
+        <p>Compravendita di auto usate, selezionate e verificate, con la stessa attenzione al cliente che contraddistingue il gruppo Atlas.</p>
+        <a class="biz-link" href="https://www.atlasautohub.it" target="_blank" rel="noopener">atlasautohub.it ↗</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="contatti">
+  <div class="wrap">
+    <div class="eyebrow">Dati societari</div>
+    <h2>Informazioni di contatto</h2>
+    <div class="dati-grid">
+      <div class="dato"><div class="k">Ragione sociale</div><div class="v">Atlas SRL</div></div>
+      <div class="dato"><div class="k">Partita IVA</div><div class="v">IT 07392190828</div></div>
+      <div class="dato"><div class="k">Numero REA</div><div class="v">PA-455794</div></div>
+      <div class="dato"><div class="k">Sede legale</div><div class="v">Via delle Peonie snc, Carini (PA) 90044</div></div>
+      <div class="dato"><div class="k">PEC aziendale</div><div class="v">atlas.srl@casellapec.com</div></div>
+      <div class="dato"><div class="k">Telefono</div><div class="v">+39 333 897 5744</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="logo-header"><span class="a">atlas</span>&nbsp;srl</div>
+    <div class="copy">© 2026 Atlas SRL — P.IVA IT07392190828</div>
+  </div>
+</footer>
+
+</body>
+</html>
