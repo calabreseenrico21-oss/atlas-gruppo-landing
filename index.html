@@ -33,16 +33,11 @@
   .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
   .eyebrow{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--grey-500);font-weight:500;}
 
-  /* Header — minimale, logo discreto */
-  .topbar{border-bottom:1px solid var(--grey-200);padding:20px 0;}
-  .topbar .wrap{display:flex;align-items:center;justify-content:flex-end;gap:12px;}
-  .topbar img{height:60px;width:auto;display:block;}
-  .topbar .word{font-size:15px;font-weight:600;letter-spacing:0.06em;}
-  .topbar .word .sub{display:inline-block;margin-left:8px;font-size:10px;font-weight:400;letter-spacing:0.24em;color:var(--grey-500);}
-
   /* Hero — chiaro, tipografia grande, niente sfondo scuro né bagliori */
-  .hero{padding:88px 0 64px;}
-  .hero .eyebrow{margin-bottom:22px;}
+  .hero{padding:56px 0 64px;}
+  .hero .brand-row{display:flex;align-items:center;gap:10px;margin-bottom:22px;}
+  .hero .brand-row img{height:22px;width:auto;display:block;}
+  .hero .brand-row .eyebrow{margin-bottom:0;}
   .hero h1{
     font-family:'Jost',sans-serif;font-weight:600;letter-spacing:-0.01em;
     font-size:clamp(34px,5.6vw,64px);line-height:1.08;max-width:15ch;
@@ -103,11 +98,6 @@
   footer .footer-col a{font-size:13px;color:var(--grey-700);line-height:1.7;display:block;}
   footer .footer-col a:hover{color:var(--ink);}
   footer .footer-col .amministratore strong{color:var(--ink);font-weight:500;}
-  footer .footer-bottom{
-    display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;
-    margin-top:24px;
-  }
-  footer .copy{font-size:11px;color:var(--grey-500);letter-spacing:0.02em;}
 
   @media (max-width:860px){
     .wrap{padding:0 22px;}
@@ -122,17 +112,14 @@
 </head>
 <body>
 
-<header class="topbar">
-  <div class="wrap">
-    <img src="assets/lockup-atlas-reale.png" alt="Atlas SRL">
-  </div>
-</header>
-
 <section class="hero">
   <div class="wrap">
-    <div class="eyebrow">Atlas SRL · Carini, Palermo</div>
+    <div class="brand-row">
+      <img src="assets/icona-atlas-reale.png" alt="Atlas SRL">
+      <div class="eyebrow">Atlas SRL · Carini, Palermo</div>
+    </div>
     <h1>Un'azienda, tre modi di sostenere chi viaggia</h1>
-    <p class="guida">Guidato da <strong>Enrico Calabrese</strong>, Amministratore.</p>
+    <p class="guida">Guidato da <strong>Enrico Calabrese</strong>.</p>
   </div>
 </section>
 
@@ -181,14 +168,9 @@
       </div>
       <div class="footer-col">
         <h4>Contatti</h4>
-        <a href="mailto:atlas.srl@casellapec.com">atlas.srl@casellapec.com</a>
-        <a href="tel:+393338975744">+39 333 897 5744</a>
+        <a href="mailto:info@atlassrl2026.com">info@atlassrl2026.com</a>
         <p class="amministratore">Amministratore: <strong>Enrico Calabrese</strong></p>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="copy">ATLAS SRL · Carini, Palermo</div>
-      <div class="copy">© 2026 Atlas SRL — P.IVA IT07392190828</div>
     </div>
   </div>
 </footer>
