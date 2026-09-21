@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Atlas SRL — Parcheggio, noleggio e vendita auto a Palermo</title>
-<meta name="description" content="Atlas SRL: gruppo palermitano con tre business — parcheggio aeroportuale Parking Beach, noleggio auto Atlas Rent a Car, vendita auto usate Atlas Auto Hub. Amministratore: Enrico Calabrese.">
+<meta name="description" content="Atlas SRL: azienda palermitana con tre attività — parcheggio aeroportuale Parking Beach, noleggio auto Atlas Rent a Car, vendita auto usate Atlas Auto Hub. Amministratore: Enrico Calabrese.">
 <link rel="icon" type="image/png" href="assets/favicon-32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,6 +20,8 @@
     --grigio-300:#D9D9D4;
     --grigio-500:#8A8A84;
     --grigio-700:#4A4A46;
+    --inchiostro:#0A0A0A;
+    --grigio-scuro:#B8B8B2;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html,body{max-width:100%;overflow-x:hidden;}
@@ -36,27 +38,54 @@
   .wrap{max-width:1280px;margin:0 auto;padding:0 48px;}
   .eyebrow{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--grigio-500);}
 
-  /* Top bar: solo logo, niente nav — pagina unica */
-  .topbar{padding:32px 0 0;}
-  .topbar img{height:34px;width:auto;display:block;}
-
-  /* Hero asimmetrico: testo enorme a sinistra, colonna sganciata a destra */
-  .hero{padding:56px 0 72px;}
-  .hero-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:56px;align-items:start;}
-  .hero h1{
-    font-size:clamp(36px,5.2vw,64px);line-height:1.08;color:var(--navy);
-    max-width:14ch;
+  /* Hero monumentale: sezione scura a piena pagina, logo in cima, icona con bagliore, titolo enorme centrato */
+  .hero-dark{
+    background:var(--inchiostro);color:var(--panna);
+    min-height:94vh;display:flex;flex-direction:column;
+    padding:32px 0 56px;position:relative;overflow:hidden;
   }
-  .hero-side{margin-top:96px;display:flex;flex-direction:column;gap:28px;}
-  .hero-side p.lede{font-size:15px;line-height:1.7;color:var(--grigio-700);max-width:34ch;}
-  .hero-side p.guida{
+  .hero-dark::after{
+    content:'';position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(ellipse 60% 50% at 50% 38%, rgba(176,141,62,0.10), transparent 70%);
+  }
+  .hero-dark .lockup{display:flex;align-items:center;gap:16px;position:relative;z-index:1;}
+  .hero-dark .lockup img{height:40px;width:auto;display:block;}
+  .hero-dark .logo-word{font-family:'Cormorant Garamond',serif;font-size:20px;letter-spacing:0.04em;color:var(--panna);line-height:1;}
+  .hero-dark .logo-word .sub{display:block;font-size:9px;font-family:'Jost',sans-serif;letter-spacing:0.3em;color:var(--grigio-scuro);margin-top:5px;}
+
+  .hero-center{
+    flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;gap:32px;padding:48px 0;position:relative;z-index:1;
+  }
+  .icon-glow{position:relative;width:min(200px,42vw);}
+  .icon-glow::before{
+    content:'';position:absolute;inset:-30%;z-index:0;
+    background:radial-gradient(circle, rgba(176,141,62,0.32), transparent 68%);
+    filter:blur(22px);
+  }
+  .icon-glow img{position:relative;z-index:1;width:100%;height:auto;filter:drop-shadow(0 24px 48px rgba(0,0,0,0.55));}
+
+  .hero-center h1{
+    font-size:clamp(38px,6.4vw,84px);line-height:1.06;color:var(--panna);
+    max-width:16ch;
+  }
+  .hero-center p.lede{font-size:16px;line-height:1.7;color:var(--grigio-scuro);max-width:42ch;font-weight:300;}
+  .hero-center p.guida{
     font-size:13px;color:var(--grigio-500);font-style:italic;font-family:'Cormorant Garamond',serif;
   }
-  .hero-side p.guida strong{color:var(--navy);font-style:normal;font-weight:500;}
-  .stats-col{display:flex;flex-direction:column;gap:16px;border-top:1px solid var(--grigio-300);padding-top:20px;}
-  .stat-row{display:flex;align-items:baseline;justify-content:space-between;gap:16px;}
-  .stat-row .n{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:28px;color:var(--oro);}
-  .stat-row .l{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--grigio-500);text-align:right;}
+  .hero-center p.guida strong{color:var(--oro);font-style:normal;font-weight:500;}
+
+  .stats-row{
+    display:flex;gap:0;position:relative;z-index:1;
+    border-top:1px solid rgba(255,255,255,0.14);margin-top:8px;
+  }
+  .stat-item{
+    padding:20px 40px;text-align:center;
+    border-right:1px solid rgba(255,255,255,0.14);
+  }
+  .stat-item:last-child{border-right:none;}
+  .stat-item .n{display:block;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;color:var(--oro);}
+  .stat-item .l{display:block;margin-top:4px;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--grigio-scuro);}
 
   .rule{height:1px;background:var(--grigio-300);}
 
@@ -100,8 +129,10 @@
 
   @media (max-width:860px){
     .wrap{padding:0 24px;}
-    .hero-grid{grid-template-columns:1fr;gap:32px;}
-    .hero-side{margin-top:0;}
+    .hero-dark{min-height:auto;padding:24px 0 40px;}
+    .hero-center{padding:36px 0;gap:24px;}
+    .stats-row{flex-wrap:wrap;justify-content:center;}
+    .stat-item{padding:16px 24px;border-right:none;}
     .biz-row{grid-template-columns:44px 1fr;grid-template-areas:"num name" ". copy";}
     .biz-num{grid-area:num;font-size:24px;}
     .biz-name{grid-area:name;}
@@ -111,34 +142,32 @@
 </head>
 <body>
 
-<div class="topbar">
-  <div class="wrap">
-    <img src="assets/lockup-orizzontale-atlas-srl.png" alt="Atlas SRL">
+<section class="hero-dark">
+  <div class="wrap lockup">
+    <img src="assets/icona-atlas-reale.png" alt="Atlas SRL">
+    <div class="logo-word">ATLAS<span class="sub">SRL</span></div>
   </div>
-</div>
 
-<section class="hero">
-  <div class="wrap hero-grid">
-    <h1>Un gruppo, tre modi di sostenere chi viaggia</h1>
-    <div class="hero-side">
-      <p class="lede">Parcheggio aeroportuale, noleggio auto e vendita auto usate: da Carini, alle porte di Palermo, Atlas SRL muove persone e veicoli in tutta la Sicilia occidentale.</p>
-      <p class="guida">Guidato da <strong>Enrico Calabrese</strong>, Amministratore del gruppo.</p>
-      <div class="stats-col">
-        <div class="stat-row"><span class="n">3</span><span class="l">Business attivi</span></div>
-        <div class="stat-row"><span class="n">4.8</span><span class="l">Valutazione media Google</span></div>
-        <div class="stat-row"><span class="n">5 min</span><span class="l">Dall'aeroporto di Palermo</span></div>
-      </div>
+  <div class="hero-center wrap">
+    <div class="icon-glow">
+      <img src="assets/icona-atlas-reale.png" alt="">
+    </div>
+    <h1>Un'azienda, tre modi di sostenere chi viaggia</h1>
+    <p class="lede">Parcheggio aeroportuale, noleggio auto e vendita auto usate: da Carini, alle porte di Palermo, Atlas SRL muove persone e veicoli in tutta la Sicilia occidentale.</p>
+    <p class="guida">Guidato da <strong>Enrico Calabrese</strong>, Amministratore.</p>
+    <div class="stats-row">
+      <div class="stat-item"><span class="n">3</span><span class="l">Attività attive</span></div>
+      <div class="stat-item"><span class="n">4.8</span><span class="l">Valutazione media Google</span></div>
+      <div class="stat-item"><span class="n">5 min</span><span class="l">Dall'aeroporto di Palermo</span></div>
     </div>
   </div>
 </section>
 
-<div class="rule"></div>
-
 <section class="business">
   <div class="wrap">
     <div class="heading">
-      <h2>Tre società, un unico gruppo</h2>
-      <div class="eyebrow">I nostri business</div>
+      <h2>Tre attività, un'unica azienda</h2>
+      <div class="eyebrow">Cosa facciamo</div>
     </div>
 
     <div class="biz-row">
