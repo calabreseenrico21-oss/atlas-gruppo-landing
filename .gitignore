@@ -1,0 +1,7 @@
+
+# Segreti: mai su git
+.env
+.env.*
+!.env.example
+*.pem
+*.key
